@@ -1,0 +1,22 @@
+{
+  "assignments": [
+    {
+      "name": "Core Assessment",
+      "display_name": "Assessment",
+      "tasks_per_semester": 4,
+      "max_points_per_submission": 50
+    },
+    {
+      "name": "Discussion",
+      "display_name": "Group Discussions",
+      "tasks_per_semester": 8,
+      "max_points_per_submission": 50
+    },
+    {
+      "name": "Course Project",
+      "display_name": "Project",
+      "tasks_per_semester": 8,
+      "max_points_per_submission": 50
+    }
+  ]
+}
