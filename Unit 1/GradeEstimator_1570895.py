@@ -1,8 +1,64 @@
+#Following Unit 7 direction A by importing pandas as pd
+import pandas as pd
 import json
-#Followig Unit 5 direction A by importing requests
+#Following Unit 5 direction A by importing requests
 import requests
 from datetime import datetime
 
+#Function to read grades from CSV file
+def read_grades(file_path):
+    try:
+        grades_df = pd.read_csv('grades.csv')
+        return grades_df
+    except FileNotFoundError:
+        print(f"Error: File 'grades.csv' not found.")
+        return None
+    except Exception as e:
+        print(f"Error: An unexpected error occurred: {e}")
+        return None
+
+# Function to clean grades
+def clean_grades(grades_df, max_grade):
+    try:
+        #Clean data: Set grades less than 0 to 0 and grades more than maximum grade to maximum possible grade
+        grades_df['Grade'] = grades_df['Grade'].apply(lambda x: max(0, min(x, max_grade)))
+        return grades_df
+    except Exception as e:
+        print(f"Error while cleaning grades: {e}")
+        return None
+
+# Main function
+def main():
+    #Use pandas to Read grades.csv file that was created for the course assignment in Unit 7
+    grades_df = read_grades('/Users/Mine/Desktop/CIS615/Unit 7/grades.csv')
+    if grades_df is None:
+        return
+
+    #Display contents of grades.csv for Unit 7 direction C
+    print("Contents of grades.csv:")
+    print(grades_df)
+
+    #Display all grades just for discussions for Unit 7 direction D
+    discussion_grades = grades_df[grades_df['Assignment Type'] == 'Discussion']
+    print("\nDiscussion Grades:")
+    print(discussion_grades)
+     
+    #Read data from JSON file to get maximum grade
+    with open('/Users/Mine/Desktop/CIS615/Unit 5/tasks.json') as f:  #Update path to your JSON file
+        max_grade_json = json.load(f)
+        max_grade = max_grade_json["max_grade"]
+
+    #Clean data
+    cleaned_grades_df = clean_grades(grades_df, max_grade)
+    if cleaned_grades_df is None:
+        return
+    
+    #Display cleaned data for Unit 7 direction G
+    print("\nCleaned Data:")
+    print(cleaned_grades_df)
+
+if __name__ == "__main__":
+    main()
 #Make a web request to the World Time API
 #Following Unit 5 direction A imported requests to make a web request to the World Time API but had to update Python to allow for requests to be made
 response = requests.get("http://worldtimeapi.org/api/timezone/America/Chicago")
