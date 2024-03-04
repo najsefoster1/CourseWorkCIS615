@@ -1,5 +1,14 @@
-# CIS615
-CIS615 2024 
-I have uploaded a resume file for a SharePoint Administrator position to the Resume folder. 
-I have uploaded a python file that request the First name, last name and then reply with thank you and use the information requested from the variable to spit out the requested name together to the Unit 1 folder. 
-I have uploaded a screenshot to the Unit 2 folder after Unit 2 adjustments of transitioning from First name, last name to Last name, first name and calculating the amount of points for a class and displaying to the end user the amount of points and whether they received max points and stating true or false. 
+Grade Estimator 
+
+This script will request for your name, first and last. 
+Then will spit your letter grade, percentage, and amount of points out of max amount of points to the user. 
+
+
+Examples: 
+What is your first name? (user input inserted) 
+What is your last name? (user input inserted)
+Hello LastName FirstName
+
+You have ___ points out of 1000
+Your percentage is __%
+Your letter grade is: 
